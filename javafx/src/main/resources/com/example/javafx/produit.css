@@ -1,0 +1,64 @@
+@import 'admin.css';
+
+/*.titles{*/
+/*    !*-fx-text-fill: -fx-labelColor;*!*/
+/*    -fx-font-size: 31px;*/
+/*    -fx-text-fill: -fx-textColor;*/
+
+/*}*/
+
+
+#produitSearch_field{
+    -fx-padding: 0 40px 0 20px;
+    -fx-text-fill: -fx-secondColor;
+    -fx-background-color: #fefefe;
+    -fx-background-radius: 30px;
+    -fx-border-radius: 30px;
+}
+
+
+
+
+
+/*.table-view{*/
+/*    -fx-background-color:transparent;*/
+/*    -fx-border-color:linear-gradient(to bottom right, #2f466b, #662d60);*/
+/*    -fx-border-radius:0px;*/
+/*    -fx-padding:0px;*/
+/*}*/
+/*.table-view .table-column{*/
+/*    -fx-alignment:CENTER;*/
+/*}*/
+/*.table-view .column-header-background{*/
+/*    -fx-background-color:linear-gradient(to bottom right, #2f466b, #662d60);*/
+/*    -fx-background-insets: 0 0 0 0;*/
+/*    -f-background-radius:8px 8px 0px 0px;*/
+/*}*/
+/*.table-view .column-header, .filter{*/
+/*    -fx-background-color: transparent;*/
+/*    -fx-size:40px;*/
+/*}*/
+/*.table-view .column-header .label{*/
+/*    -fx-text-fill:-fx-fourthColor;*/
+/*    -fx-font-family:"Arial";*/
+/*}*/
+
+
+
+#peremption_field .icon,#date_field .icon,#modifierPeremption_field .icon ,#modifierDate_field .icon  {
+    -mfx-color: white;
+    -fx-cursor: hand;
+}
+
+
+
+.mfx-date-picker .date-picker-popup .content{
+    -fx-cursor: hand;
+}
+
+
+
+#delete_icon,#edit_icon{
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}

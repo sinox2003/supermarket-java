@@ -1,0 +1,312 @@
+*{
+    -fx-mainColor: #201f41;
+    -fx-secondColor:#0C0C28;
+    -fx-thirdColor:#5C59FD;
+    -fx-fourthColor:#D5E0FF;
+    -fx-textColor:#E9E9F9;
+
+    -fx-labelColor:#5F5DC7;
+}
+.root{
+
+    --block-font-family: 'roboto';
+    -fx-font-weight: bold;
+    -fx-background-color: -fx-mainColor;
+}
+
+/*    \\\\\\\\\\\\\\\\\\\\\\\\        top bar  with close and minimise buttons           /////////////////////// */
+.top-bar {
+    -fx-background-color: transparent;
+    -fx-background-radius: 20px 20px 0 0;
+}
+.top-bar .top-bar-buttons{
+    -fx-background-color: transparent;
+    -fx-max-width: 33px;
+
+
+}
+.top-bar .top-bar-buttons:hover{
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
+}
+/*   \\\\\\\\\\\\\\\\\\\\\\   customizing the  side-bar    ////////////////////////////////////   */
+
+#sideBar{
+    -fx-background-radius: 8 20 20 8 ;
+    -fx-background-color: -fx-secondColor;
+}
+#sideBar #sideBar_vbox .button ,#signout_Btn{
+    -fx-background-radius: 10px ;
+    -fx-background-color: transparent;
+    -fx-text-fill:-fx-textColor ;
+    -fx-font-size: 20px;
+    -fx-alignment: BASELINE_LEFT;
+    -fx-graphic-text-gap: 18;
+    -fx-padding: 0 0 0 15px ;
+    -fx-cursor: hand;
+}
+#sideBar #sideBar_vbox .button:hover, #signout_Btn:hover{
+
+    -fx-background-color: -fx-mainColor;
+
+}
+
+#sideBar #sideBar_vbox .button:focused ,.button:focused .awesome-icon  {
+    -fx-fill:-fx-mainColor;
+    /*-fx-color:black;*/
+    -fx-background-color: white;
+    -fx-text-fill: -fx-mainColor;
+
+}
+
+/*#signout_Btn:focused{*/
+/*    -fx-background-color: #d02e24;*/
+/*}*/
+/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\          main anchor pane            /////////////////////////////////////////////////////*/
+#main_pan{
+    -fx-border-radius: 6 20 20 6;
+    -fx-background-radius: 6 20 20 6;
+
+}
+
+#content_pane, #products_pane, #users_pane, #dashboard_pane,#home_pane, #addProduct_pane, #modifierProduct_pane,
+#addUser_pane, #modifierUser_pane,#allProducts_Pane,
+#addCategory_pane{
+    -fx-background-radius: 0 0 20px 0;
+    -fx-background-color: -fx-mainColor;
+}
+/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  scroll pane in the first page /////////////////////////////*/
+
+.mfx-scroll-pane .scroll-bar:horizontal .thumb {
+    /*-fx-background-color: #2f6cd7;*/
+    -fx-visibility: none;
+    -fx-content-display: none;
+    -fx-opacity: 0;
+
+
+}
+.mfx-scroll-pane .scroll-bar:horizontal .track {
+    -fx-opacity: 0;
+    -fx-background-color:#E7DFC6;  /* Replace with your color */
+}
+
+
+/* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\   table-view     ///////////////////////////////*/
+
+.mfx-table-view {
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-border-width:0px;
+
+}
+.mfx-table-view .columns-container  {
+    /*-fx-border-width: 0;*/
+    -fx-border-width: 0 0 2 0;
+    -fx-background-radius: 10 10 0 0;
+
+}
+
+.mfx-table-column {
+    -fx-border-width: 0;
+    /*-fx-text-fill: white;*/
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+    -fx-font-family: roboto;
+}
+.mfx-table-column:hover {
+    -fx-border-color: transparent gray  transparent transparent;
+    -fx-border-width:  1px ;
+}
+
+.mfx-table-row:hover {
+    -fx-background-color: #D5E0FF;
+}
+.mfx-table-row:selected{
+
+    -fx-background-color: #94b0fa;
+}
+.mfx-table-row .mfx-ripple-generator {
+    -mfx-ripple-radius: 20;
+    -mfx-ripple-color: #ec9773;
+}
+.mfx-table-row-cell {
+    -fx-font-family: roboto;
+
+    -fx-font-size: 14px;
+}
+/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  text field  ///////////////////////////////////////*/
+.titles{
+    /*-fx-text-fill: -fx-labelColor;*/
+    -fx-font-size: 31px;
+    -fx-text-fill: -fx-textColor;
+
+}
+
+
+.mfx-text-field,.mfx-date-picker  {
+    -fx-font-size:16px ;
+    -fx-font-weight: bold;
+    -fx-font-family:"Roboto";
+
+    -fx-border-width: 0 0 3px 0;
+    -px-padding:0 0 -8px 3px;
+    -fx-border-radius: 0;
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+
+
+
+}
+.mfx-text-field .floating-text ,.mfx-date-picker .floating-text{
+    -fx-background-color: transparent;
+
+    -fx-text-fill: #a9a9a9;
+
+}
+
+/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  buttons  ///////////////////////////////////*/
+
+.mfx-button{
+    -fx-padding: 10px 13px 10px 13px;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-cursor: hand;
+    -fx-background-radius: 10px;
+}
+.annuler_buttons{
+    -fx-background-color: #742979;
+
+}
+.annuler_buttons:hover{
+    -fx-background-color: #953a9b;
+    /*-fx-rotate: -1;*/
+}
+.valider_buttons:hover{
+
+    -fx-background-color: transparent;
+}
+
+.valider_buttons:pressed ,.annuler_buttons:pressed{
+    -fx-background-color:linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #3cac3e 0.0%, #6fb14b 0.6729%, #0cc296 38.8084%, #1185c4 71.6016%, #4a51d1 100.0%)
+}
+.add_buttons{
+    /*-fx-background-color: #428aee;*/
+    -fx-background-color: #336fc4;
+}
+.add_buttons:hover{
+    /*-fx-background-color:#6396D8 ;*/
+    -fx-background-color: #428aee;
+    /*-fx-rotate: -1;*/
+}
+.add_buttons:pressed{
+    -fx-background-color:linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #3cac3e 0.0%, #6fb14b 0.6729%, #0cc296 38.8084%, #1185c4 71.6016%, #4a51d1 100.0%)
+}
+/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ scroll pane in categories pane /////////////////////////////////*/
+#scroll_pane_categories{
+    -fx-background-color: transparent;
+}
+#DBCategories_container .pane{
+    -fx-background-radius:0 30 0 30;
+    -fx-max-width: 246;
+    -fx-max-height: 334;
+    -fx-min-width: 246;
+    -fx-min-height: 334;
+
+}
+
+#DBCategories_container .pane  .mfx-button  {
+    -mfx-button-type: raised;
+
+    -mfx-depth-level:level5;
+
+}
+#DBCategories_container .pane .mfx-button .mfx-ripple-generator {
+    -mfx-ripple-radius: 0;
+    -mfx-ripple-color: transparent;
+}
+#DBCategories_container .pane  .showCategoryProducts_btn {
+
+    -fx-content-display: graphic_only;
+    -fx-cursor: hand;
+    -fx-background-color: white;
+
+    -fx-max-width: 41;
+    -fx-max-height: 41;
+    -fx-min-width: 41;
+    -fx-min-height: 41;
+    -fx-translate-x: 40;
+    -fx-translate-y: 265;
+    -fx-shape: "M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z M230.71 169.53c-3.72 2.06-6.04 6.04-6.04 10.24 V300c0 4.54 2.45 8.72 6.04 10.98s8.05 1.89 11.69-0.23l85.08-52.12c3.53-2.17 5.74-5.35 5.74-9.05s-2.21-6.88-5.74-9.05l-85.08-52.12c-3.64-2.12-8.05-2.21-11.69-0.23z ";
+}
+
+#DBCategories_container .pane  .showCategoryProducts_btn:hover {
+    -fx-background-color: rgba(238, 236, 236, 0.9);
+}
+
+
+#DBCategories_container .pane .label {
+    -fx-font-size: 24;
+
+    -fx-translate-x: 28;
+    -fx-max-width:190 ;
+    -fx-min-width:190 ;
+    -fx-max-height:100 ;
+    -fx-min-height:100 ;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-line-spacing: 5;
+    -fx-text-fill: white;
+    -fx-wrap-text: true;
+    -fx-fill: white;
+    -fx-font-weight: bolder ;
+    -fx-font-style: italic;
+    -fx-font-family:"roboto" ;
+}
+
+#DBCategories_container  .pane .edit-button,#DBCategories_container .pane .deleteCategory_btn{
+    -fx-font-size: 19;
+    -fx-font-weight: bold ;
+    -fx-effect: dropshadow(gaussian,rgba(211, 211, 211, 0.9),2, 1, 0, 4);
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+    -fx-min-height:50;
+    -fx-min-width: 220;
+}
+#DBCategories_container  .pane .edit-button{
+    -fx-background-radius: 30 30 0 30 ;
+}
+#DBCategories_container .pane .deleteCategory_btn{
+    -fx-translate-y: 70;
+    -fx-background-radius: 0 30 30 0 ;
+}
+
+#DBCategories_container .pane .edit-button:pressed {
+    -fx-effect: dropshadow(gaussian, rgba(211, 211, 211, 0.9),2, 1,0, 2);
+    -fx-translate-y: 2;
+}
+#DBCategories_container .pane .deleteCategory_btn:pressed {
+    -fx-effect: dropshadow(gaussian, rgba(211, 211, 211, 0.9),2, 1,0, 2);
+    -fx-translate-y: 72;
+}
+/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\    refresh button ////////////////////////////////////*/
+.refresh_button{
+    -fx-padding: 10px 13px 10px 13px;
+    -fx-background-color: #742979;
+    -fx-font-size: 17px;
+    -fx-cursor: hand;
+    -fx-background-radius: 10px;
+}
+.refresh_button:hover{
+    -fx-background-color: #953a9b;
+}
+.refresh_button:pressed{
+    -fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #6200f4 0.0%, #dd00ff 0.6729%, #ff0090 43.6484%, #ff0009 72.2746%, #e74e55 100.0%);
+}
+
+/*d/////////////////////////////////// text image admin  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+#lbl{
+    -fx-font-family: "roboto";
+    -fx-text-fill: white;
+}
+
+

@@ -1,0 +1,36 @@
+#type_field .caret .mfx-font-icon {
+    -mfx-color: white;
+
+}
+
+/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  ajouter categorie    ///////////////////////////////////*/
+#color_picker{
+    -fx-background-color:transparent;
+    -fx-border-width:0 0 3px 0;
+    -fx-border-color:white;
+    /*-fx-prompt-text-fill:white ;*/
+}
+#color_picker .mfx-font-icon{
+    -fx-color:white;
+    /*-fx-prompt-text-fill:white ;*/
+}
+
+/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\    refresh button ////////////////////////////////////*/
+.refresh_button{
+    -fx-padding: 10px 13px 10px 13px;
+    -fx-background-color: #f15951;
+    -fx-font-size: 17px;
+    -fx-cursor: hand;
+    -fx-background-radius: 10px;
+}
+.refresh_button:hover{
+    -fx-background-color: #d05151;
+}
+.refresh_button:pressed{
+    -fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #9b00f4 0.0%, #9b00f4 0.6729%, #e80592 43.6484%, #d74045 72.2746%, #e74e55 100.0%);
+}
+/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\   delete and edit icons  ////////////////////////////////*/
+#edit_iconUser,#delete_iconUser{
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}

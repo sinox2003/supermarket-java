@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXComboBox?>
+<?import io.github.palexdev.materialfx.controls.MFXDatePicker?>
+<?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
+<?import io.github.palexdev.materialfx.controls.MFXTableView?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import io.github.palexdev.materialfx.font.MFXFontIcon?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="main_pan" prefHeight="709.0" prefWidth="1135.0" stylesheets="@admin.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.ApplicationController">
+   <children>
+      <AnchorPane fx:id="topBar" layoutX="217.0" prefHeight="46.0" prefWidth="888.0">
+         <children>
+            <HBox alignment="CENTER_RIGHT" blendMode="SCREEN" cache="true" cacheHint="SCALE" layoutX="7.0" prefHeight="46.0" prefWidth="888.0" spacing="1.0" styleClass="top-bar">
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Button cancelButton="true" focusTraversable="false" layoutX="113.0" layoutY="-4.0" mnemonicParsing="false" onAction="#show_notifications" pickOnBounds="false" prefHeight="48.0" prefWidth="56.0" style="-fx-background-color: transparent;" textFill="#fffdfd">
+                           <graphic>
+                              <MFXFontIcon description="mfx-bell-alt" size="34.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </MFXFontIcon>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Circle fx:id="notification_nbr" fill="#810ee3" layoutX="148.0" layoutY="14.0" radius="4.0" stroke="#810ee3" strokeType="INSIDE" />
+                     </children>
+                  </Pane>
+                  <Button cancelButton="true" focusTraversable="false" maxWidth="54.0" minWidth="26.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="26.0" style="-fx-background-color: transparent;" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <graphic>
+                        <Circle fill="#29c83f" radius="7.0" stroke="#29c83f" strokeType="INSIDE" />
+                     </graphic>
+                  </Button>
+                  <Button cancelButton="true" focusTraversable="false" maxWidth="54.0" minWidth="26.0" mnemonicParsing="false" onAction="#minimize_window" prefHeight="31.0" prefWidth="26.0" styleClass="top-bar-buttons" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <graphic>
+                        <Circle fill="#f7a71e" radius="7.0" stroke="#f7a71e" strokeType="INSIDE" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="close_button1" cancelButton="true" focusTraversable="false" maxWidth="54.0" minWidth="28.0" mnemonicParsing="false" onAction="#close" prefHeight="31.0" prefWidth="26.0" styleClass="top-bar-buttons" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <graphic>
+                        <Circle fill="#f45b4d" radius="7.0" stroke="#f45b4d" strokeType="INSIDE" />
+                     </graphic>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+               <padding>
+                  <Insets right="15.0" top="4.0" />
+               </padding>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="sideBar" layoutX="1.0" prefHeight="709.0" prefWidth="214.0">
+         <children>
+            <VBox fx:id="sideBar_vbox" alignment="CENTER" layoutY="163.0" prefHeight="344.0" prefWidth="214.0" spacing="13.0">
+               <children>
+                  <MFXButton fx:id="home" alignment="BASELINE_LEFT" buttonType="RAISED" depthLevel="LEVEL5" graphicTextGap="0.0" onAction="#switchTo" prefHeight="56.0" prefWidth="188.0" rippleAnimationSpeed="0.0" rippleBackgroundOpacity="0.0" rippleRadius="0.0" rippleRadiusMultiplier="0.0" text="Home">
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="HOME" size="25px" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" styleClass="awesome-icon">
+                           <font>
+                              <Font name="System Italic" size="41.0" />
+                           </font>
+                        </FontAwesomeIcon>
+                     </graphic>
+                  </MFXButton>
+                  <MFXButton fx:id="dashboard" alignment="BASELINE_LEFT" buttonType="RAISED" depthLevel="LEVEL5" graphicTextGap="0.0" layoutX="24.0" layoutY="146.0" onAction="#switchTo" prefHeight="56.0" prefWidth="188.0" rippleAnimationSpeed="0.0" rippleBackgroundOpacity="0.0" rippleRadius="0.0" text="Actions">
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="HISTORY" size="25px" styleClass="awesome-icon">
+                           <font>
+                              <Font name="System Italic" size="41.0" />
+                           </font>
+                        </FontAwesomeIcon>
+                     </graphic>
+                  </MFXButton>
+                  <MFXButton fx:id="users" alignment="BASELINE_LEFT" buttonType="RAISED" depthLevel="LEVEL5" graphicTextGap="0.0" onAction="#switchTo" prefHeight="56.0" prefWidth="188.0" rippleAnimationSpeed="0.0" rippleBackgroundOpacity="0.0" rippleRadius="0.0" text="Users">
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="USERS" size="25px" styleClass="awesome-icon">
+                           <font>
+                              <Font name="System Italic" size="41.0" />
+                           </font>
+                        </FontAwesomeIcon>
+                     </graphic>
+                  </MFXButton>
+                  <MFXButton fx:id="products" alignment="BASELINE_LEFT" buttonType="RAISED" depthLevel="LEVEL5" graphicTextGap="0.0" onAction="#switchTo" prefHeight="56.0" prefWidth="188.0" rippleAnimationSpeed="0.0" rippleBackgroundOpacity="0.0" rippleRadius="0.0" text="Products">
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="SHOPPING_CART" size="25px" styleClass="awesome-icon">
+                           <font>
+                              <Font name="System Italic" size="41.0" />
+                           </font>
+                        </FontAwesomeIcon>
+                     </graphic>
+                  </MFXButton>
+               </children>
+            </VBox>
+            <MFXButton fx:id="signout_Btn" alignment="BASELINE_LEFT" buttonType="RAISED" depthLevel="LEVEL5" graphicTextGap="0.0" layoutX="13.0" layoutY="604.0" onAction="#SignOut" prefHeight="56.0" prefWidth="188.0" rippleAnimateShadow="true" rippleAnimationSpeed="0.7" rippleBackgroundOpacity="1.0" rippleRadius="18.0" rippleRadiusMultiplier="10.0" text="Sign out">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" rotate="180.0" size="25px" text="">
+                     <font>
+                        <Font name="System Italic" size="41.0" />
+                     </font>
+                  </FontAwesomeIcon>
+               </graphic>
+               <rippleColor>
+                  <LinearGradient endX="1.0" endY="0.4356060479626511" startY="0.09090907645948006">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.06300000101327896" green="0.8999999761581421" blue="0.7757245898246765" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.006729475100942127">
+                           <color>
+                              <Color red="0.06300000101327896" green="0.8999999761581421" blue="0.7757245898246765" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.38665594327544883">
+                           <color>
+                              <Color red="0.02759999968111515" green="0.5496766567230225" blue="0.9200000166893005" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.7316712076945799">
+                           <color>
+                              <Color red="0.2949707508087158" green="0.37388303875923157" blue="0.821052610874176" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.6493372917175293" green="0.07840000092983246" blue="0.9800000190734863" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </rippleColor>
+            </MFXButton>
+            <VBox alignment="TOP_CENTER" layoutX="57.0" layoutY="39.0" prefHeight="128.0" prefWidth="100.0">
+               <children>
+                  <ImageView fitHeight="103.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@admin_logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lbl" text="Administrateur" textFill="#ca4eff">
+                     <font>
+                        <Font name="Roboto" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="content_pane" layoutX="217.0" layoutY="46.0" prefHeight="662.0" prefWidth="918.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <children>
+            <Pane fx:id="addUser_pane" prefHeight="662.0" prefWidth="918.0" stylesheets="@user.css">
+               <children>
+                  <Label layoutX="313.0" prefHeight="67.0" prefWidth="323.0" styleClass="titles" text="Ajouter un utilisateur" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="40.0" />
+                     </font>
+                  </Label>
+                  <VBox layoutX="313.0" layoutY="131.0" prefHeight="321.0" prefWidth="316.0" style="-fx-spacing: 10;">
+                     <children>
+                        <MFXTextField fx:id="username_field" borderGap="1.0" floatMode="BORDER" floatingText="Username" prefHeight="59.0" prefWidth="318.0" styleClass="mfx-text-field">
+                           <padding>
+                              <Insets bottom="-8.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </MFXTextField>
+                        <Label fx:id="username_rule" prefHeight="17.0" prefWidth="295.0" textFill="RED" />
+                        <MFXTextField fx:id="password_field" borderGap="1.0" floatMode="BORDER" floatingText="Password" prefHeight="59.0" prefWidth="317.0" styleClass="mfx-text-field">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="-8.0" />
+                           </padding>
+                        </MFXTextField>
+                        <Label fx:id="password_rule" layoutX="10.0" layoutY="80.0" prefHeight="17.0" prefWidth="295.0" textFill="RED" />
+                        <MFXComboBox fx:id="type_field" borderGap="1.0" floatMode="BORDER" floatingText="Type" prefHeight="59.0" prefWidth="321.0" styleClass="mfx-text-field">
+                           <padding>
+                              <Insets bottom="-8.0" />
+                           </padding>
+                        </MFXComboBox>
+                        <Label fx:id="type_rule" layoutX="10.0" layoutY="149.0" prefHeight="17.0" prefWidth="295.0" textFill="RED" />
+                     </children>
+                  </VBox>
+                  <JFXButton fx:id="valider_btn" layoutX="311.0" layoutY="452.0" onAction="#validerUser" prefHeight="56.0" prefWidth="323.0" text="Valider" textFill="#d3d3d3">
+                     <styleClass>
+                        <String fx:value="annuler_buttons" />
+                        <String fx:value="mfx-button" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton fx:id="annulerProduit_btn1" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="31.0" layoutY="8.0" onAction="#cancelUser" prefHeight="40.0" prefWidth="40.0" text="Annuler" textFill="#d3d3d3">
+                     <graphic>
+                        <MFXFontIcon description="mfx-step-backward" size="30.0" wrappingWidth="20.274993896484375">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </MFXFontIcon>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="valider_buttons" />
+                        <String fx:value="mfx-button" />
+                     </styleClass>
+                  </JFXButton>
+               </children>
+            </Pane>
+            <Pane fx:id="modifierUser_pane" prefHeight="662.0" prefWidth="918.0">
+               <children>
+                  <Label fx:id="modifierUser_label" alignment="CENTER" layoutX="210.0" layoutY="14.0" prefHeight="59.0" prefWidth="525.0" styleClass="titles" text="Modifier l'Utilisateur" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="40.0" />
+                     </font>
+                  </Label>
+                  <VBox layoutX="311.0" layoutY="104.0" prefHeight="321.0" prefWidth="323.0" style="-fx-spacing: 10;">
+                     <children>
+                        <MFXTextField fx:id="modifierUsername_field" borderGap="5.0" floatMode="BORDER" floatingText="Username" prefHeight="59.0" prefWidth="345.0">
+                           <padding>
+                              <Insets bottom="-8.0" left="5.0" />
+                           </padding>
+                        </MFXTextField>
+                        <Label fx:id="modifierUsername_rule" prefHeight="18.0" prefWidth="333.0" textFill="RED" />
+                        <MFXTextField fx:id="modifierPassword_field" borderGap="5.0" floatMode="BORDER" floatingText="Password" prefHeight="59.0" prefWidth="336.0">
+                           <padding>
+                              <Insets bottom="-8.0" left="5.0" />
+                           </padding>
+                        </MFXTextField>
+                        <Label fx:id="modifierPassword_rule" layoutX="10.0" layoutY="80.0" prefHeight="18.0" prefWidth="350.0" textFill="RED" />
+                        <MFXTextField fx:id="modifierType_field" borderGap="5.0" editable="false" floatMode="BORDER" floatingText="Type" prefHeight="59.0" prefWidth="355.0">
+                           <padding>
+                              <Insets bottom="-8.0" left="5.0" />
+                           </padding>
+                        </MFXTextField>
+                        <Label fx:id="modifierType_rule" layoutX="10.0" layoutY="149.0" prefHeight="18.0" prefWidth="339.0" textFill="RED" />
+                     </children>
+                  </VBox>
+                  <JFXButton fx:id="valider_btn" layoutX="315.0" layoutY="425.0" onAction="#modifierValiderUser" prefHeight="59.0" prefWidth="316.0" text="Valider" textFill="#d3d3d3">
+                     <styleClass>
+                        <String fx:value="mfx-button" />
+                        <String fx:value="annuler_buttons" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton fx:id="annulerProduit_btn11" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="34.0" layoutY="18.0" onAction="#cancelUser" prefHeight="42.0" prefWidth="46.0" text="Annuler" textFill="#d3d3d3">
+                     <styleClass>
+                        <String fx:value="mfx-button" />
+                        <String fx:value="valider_buttons" />
+                     </styleClass>
+                     <graphic>
+                        <MFXFontIcon description="mfx-step-backward" size="30.0" wrappingWidth="20.274993896484375">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </MFXFontIcon>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </Pane>
+            <Pane fx:id="addCategory_pane" layoutX="-1.0" layoutY="-2.0" prefHeight="662.0" prefWidth="918.0" stylesheets="@user.css">
+               <children>
+                  <Label layoutX="310.0" prefHeight="67.0" prefWidth="329.0" styleClass="titles" text="Ajouter une catégorie" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="40.0" />
+                     </font>
+                  </Label>
+                  <VBox layoutX="313.0" layoutY="179.0" prefHeight="87.0" prefWidth="323.0" style="-fx-spacing: 10;">
+                     <children>
+                        <MFXTextField fx:id="categoryName_field" floatingText="Nom de catégorie" prefHeight="59.0" prefWidth="325.0" />
+                        <Label fx:id="categoryName_rule" layoutX="10.0" layoutY="80.0" prefHeight="18.0" prefWidth="316.0" textFill="RED" />
+                     </children>
+                  </VBox>
+                  <JFXButton fx:id="valider_btn" layoutX="317.0" layoutY="294.0" onAction="#validerCategory" prefHeight="56.0" prefWidth="316.0" text="Valider" textFill="#d3d3d3">
+                     <styleClass>
+                        <String fx:value="mfx-button" />
+                        <String fx:value="annuler_buttons" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton fx:id="annulerProduit_btn12" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="41.0" layoutY="8.0" onAction="#cancelCategory" prefHeight="42.0" prefWidth="46.0" text="Annuler" textFill="#d3d3d3">
+                     <styleClass>
+                        <String fx:value="mfx-button" />
+                        <String fx:value="valider_buttons" />
+                     </styleClass>
+                     <graphic>
+                        <MFXFontIcon description="mfx-step-backward" size="30.0" wrappingWidth="20.274993896484375">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </MFXFontIcon>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </Pane>
+            <Pane fx:id="modifierProduct_pane" prefHeight="662.0" prefWidth="918.0" stylesheets="@produit.css">
+               <children>
+                  <Label fx:id="modifier_label" alignment="CENTER" layoutX="186.0" prefHeight="53.0" prefWidth="578.0" styleClass="titles" text="Modifier le Produit" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="40.0" />
+                     </font>
+                  </Label>
+                  <VBox layoutX="314.0" layoutY="69.0" prefHeight="466.0" prefWidth="323.0" style="-fx-spacing: 10;">
+                     <children>
+                        <MFXTextField fx:id="modifierDesignation_field" floatingText="Designation" prefHeight="59.0" prefWidth="355.0" />
+                        <Label fx:id="modifierDesignation_rule" prefHeight="18.0" prefWidth="338.0" textFill="RED" />
+                        <MFXTextField fx:id="modifierQuantite_field" floatingText="Quantité" prefHeight="59.0" prefWidth="349.0" />
+                        <Label fx:id="modifierQuantite_rule" layoutX="10.0" layoutY="80.0" prefHeight="18.0" prefWidth="353.0" textFill="RED" />
+                        <MFXDatePicker fx:id="modifierDate_field" allowEdit="false" floatMode="BORDER" floatingText="date d'entree de stock" prefHeight="50.0" prefWidth="327.0" />
+                        <Label fx:id="modifierDate_rule" layoutX="10.0" layoutY="246.0" prefHeight="18.0" prefWidth="345.0" textFill="RED" />
+                        <MFXDatePicker fx:id="modifierPeremption_field" allowEdit="false" floatMode="BORDER" floatingText="date de peremption (si existe)" prefHeight="50.0" prefWidth="334.0" />
+                        <Label fx:id="modifierPeremption_rule" prefHeight="18.0" prefWidth="331.0" textFill="RED" />
+                        <MFXTextField fx:id="modifierPrix_field" floatingText="Prix" prefHeight="59.0" prefWidth="339.0" />
+                        <Label fx:id="modifierPrix_rule" layoutX="10.0" layoutY="342.0" prefHeight="18.0" prefWidth="333.0" textFill="RED" />
+                     </children>
+                  </VBox>
+                  <JFXButton fx:id="modifierValider_btn" layoutX="318.0" layoutY="535.0" onAction="#modifierValiderProduit" prefHeight="56.0" prefWidth="316.0" stylesheets="@admin.css" text="Valider" textFill="#d3d3d3">
+                     <styleClass>
+                        <String fx:value="annuler_buttons" />
+                        <String fx:value="mfx-button" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton fx:id="annuler_modifier_Produit_btn" contentDisplay="GRAPHIC_ONLY" layoutX="53.0" layoutY="1.0" onAction="#cancelProduct" prefHeight="42.0" prefWidth="46.0" text="Annuler" textFill="#d3d3d3">
+                     <styleClass>
+                        <String fx:value="mfx-button" />
+                        <String fx:value="valider_buttons" />
+                     </styleClass>
+                     <graphic>
+                        <MFXFontIcon description="mfx-step-backward" size="30.0" wrappingWidth="20.274993896484375">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </MFXFontIcon>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </Pane>
+            <Pane fx:id="dashboard_pane" layoutX="-1.0" layoutY="-1.0" prefHeight="662.0" prefWidth="918.0" stylesheets="@user.css">
+               <children>
+                  <Label layoutX="291.0" prefHeight="50.0" prefWidth="337.0" styleClass="titles" text="Historique des actions" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="40.0" />
+                     </font>
+                  </Label>
+                  <MFXTableView fx:id="historique_table" layoutX="12.0" layoutY="75.0" prefHeight="512.0" prefWidth="895.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="allProducts_Pane" prefHeight="662.0" prefWidth="918.0">
+               <children>
+                  <MFXTableView fx:id="AllProducts_table" layoutX="12.0" layoutY="75.0" prefHeight="512.0" prefWidth="895.0" />
+                  <Label layoutX="371.0" styleClass="titles" text="Les Produits" />
+               </children>
+            </Pane>
+            <Pane fx:id="users_pane" prefHeight="662.0" prefWidth="918.0">
+               <children>
+                  <Label layoutX="341.0" prefHeight="50.0" prefWidth="224.0" styleClass="titles" text="Les Utilisateurs" textFill="#f20b0b">
+                     <font>
+                        <Font name="Arial Bold" size="41.0" />
+                     </font>
+                  </Label>
+                  <JFXButton fx:id="addUser_btn" alignment="CENTER" buttonType="RAISED" graphicTextGap="13.0" layoutX="227.0" layoutY="516.0" onAction="#addUser" prefHeight="57.0" prefWidth="453.0" ripplerFill="WHITE" text="Ajouter Utilisateur" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="PLUS" size="25px">
+                           <font>
+                              <Font name="System Italic" size="41.0" />
+                           </font>
+                        </FontAwesomeIcon>
+                     </graphic>
+                     <font>
+                        <Font name="Calibri" size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="14.0" top="10.0" />
+                     </padding>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <styleClass>
+                        <String fx:value="add_buttons" />
+                        <String fx:value="mfx-button" />
+                     </styleClass>
+                  </JFXButton>
+                  <MFXTableView fx:id="usersTable" layoutX="90.0" layoutY="81.0" prefHeight="398.0" prefWidth="738.0" styleClass="mfx-table-view" />
+               </children>
+            </Pane>
+            <Pane fx:id="addProduct_pane" prefHeight="662.0" prefWidth="918.0" stylesheets="@produit.css">
+               <children>
+                  <Label alignment="TOP_CENTER" layoutX="314.0" prefHeight="46.0" prefWidth="316.0" styleClass="titles" text="Ajouter un produit" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="40.0" />
+                     </font>
+                  </Label>
+                  <VBox alignment="CENTER" layoutX="311.0" layoutY="74.0" prefHeight="454.0" prefWidth="323.0" style="-fx-spacing: 10;">
+                     <children>
+                        <MFXTextField fx:id="designation_field" borderGap="1.0" floatMode="BORDER" floatingText="Designation" floatingTextGap="0.0" prefHeight="53.0" prefWidth="349.0" styleClass="ajoutProduit-text-field">
+                           <padding>
+                              <Insets bottom="-8.0" />
+                           </padding></MFXTextField>
+                        <Label fx:id="designation_rule" prefHeight="18.0" prefWidth="333.0" textFill="RED" />
+                        <MFXTextField fx:id="quantite_field" borderGap="1.0" floatMode="BORDER" floatingText="Quantite" floatingTextGap="0.0" layoutX="10.0" layoutY="38.0" prefHeight="53.0" prefWidth="338.0" styleClass="ajoutProduit-text-field">
+                           <padding>
+                              <Insets bottom="-8.0" />
+                           </padding></MFXTextField>
+                        <Label fx:id="quantite_rule" layoutX="10.0" layoutY="80.0" prefHeight="18.0" prefWidth="338.0" textFill="RED" />
+                        <MFXDatePicker fx:id="date_field" allowEdit="false" borderGap="1.0" floatMode="BORDER" floatingText="date d'entree de stock" prefHeight="57.0" prefWidth="335.0">
+                           <font>
+                              <Font name="Roboto Bold" size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="-8.0" />
+                           </padding>
+                        </MFXDatePicker>
+                        <Label fx:id="date_rule" layoutX="10.0" layoutY="246.0" prefHeight="18.0" prefWidth="339.0" textFill="RED" />
+                        <MFXDatePicker fx:id="peremption_field" allowEdit="false" borderGap="1.0" floatMode="BORDER" floatingText="date d'expiration" layoutX="10.0" layoutY="310.0" prefHeight="58.0" prefWidth="339.0">
+                           <font>
+                              <Font name="Roboto Bold" size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="-8.0" />
+                           </padding>
+                        </MFXDatePicker>
+                        <Label fx:id="peremption_rule" prefHeight="18.0" prefWidth="334.0" textFill="RED" />
+                        <MFXTextField fx:id="prix_field" borderGap="1.0" floatMode="BORDER" floatingText="Prix" floatingTextGap="0.0" prefHeight="54.0" prefWidth="344.0" styleClass="ajoutProduit-text-field">
+                           <padding>
+                              <Insets bottom="-8.0" />
+                           </padding></MFXTextField>
+                        <Label fx:id="prix_rule" layoutX="10.0" layoutY="342.0" prefHeight="18.0" prefWidth="350.0" textFill="RED" />
+                     </children>
+                  </VBox>
+                  <JFXButton fx:id="valider_btn_produit" buttonType="RAISED" layoutX="315.0" layoutY="539.0" onAction="#ValiderProduit" prefHeight="56.0" prefWidth="316.0" ripplerFill="#001545" text="Valider" textFill="#d3d3d3">
+                     <styleClass>
+                        <String fx:value="mfx-button" />
+                        <String fx:value="annuler_buttons" />
+                     </styleClass></JFXButton>
+                  <JFXButton fx:id="annulerProduit_btn" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="42.0" onAction="#cancelProduct" prefHeight="31.0" prefWidth="18.0" ripplerFill="#e1221c" text="Annuler" textFill="#d3d3d3">
+                     <styleClass>
+                        <String fx:value="mfx-button" />
+                        <String fx:value="valider_buttons" />
+                     </styleClass>
+                     <graphic>
+                        <MFXFontIcon description="mfx-step-backward" size="30.0" wrappingWidth="20.274993896484375">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </MFXFontIcon>
+                     </graphic></JFXButton>
+               </children>
+            </Pane>
+            <Pane fx:id="products_pane" layoutY="-1.0" prefHeight="662.0" prefWidth="918.0" stylesheets="@produit.css">
+               <children>
+                  <Label fx:id="categorieLabel" alignment="CENTER" layoutX="-3.0" prefHeight="53.0" prefWidth="918.0" styleClass="titles" textFill="#cd2e2e">
+                     <font>
+                        <Font size="37.0" />
+                     </font>
+                  </Label>
+      <!--                  <SearchableComboBox layoutX="47.0" layoutY="91.0" />-->
+                  <JFXButton fx:id="addproduct_btn" buttonType="RAISED" graphicTextGap="10.0" layoutX="6.0" layoutY="554.0" onAction="#addProduct" prefHeight="56.0" prefWidth="366.0" ripplerFill="#13ddef" text="Ajouter Produit" textFill="#ac4949">
+                     <graphic>
+                        <FontAwesomeIcon fill="#e9e9f9" glyphName="PLUS" size="25px" />
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="add_buttons" />
+                        <String fx:value="mfx-button" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton fx:id="refreshproduits_btn" buttonType="RAISED" graphicTextGap="16.0" layoutX="546.0" layoutY="554.0" onAction="#initializeProduits" prefHeight="56.0" prefWidth="366.0" ripplerFill="#ff00eb" text="Refresh" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIcon fx:id="refresh_icon" fill="WHITE" glyphName="REFRESH" size="20px" />
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="refresh_button" />
+                        <String fx:value="mfx-button" />
+                     </styleClass>
+                  </JFXButton>
+                  <MFXTableView fx:id="ProduitsTable" layoutX="3.0" layoutY="71.0" prefHeight="473.0" prefWidth="906.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="home_pane" prefHeight="662.0" prefWidth="918.0">
+               <children>
+                  <MFXScrollPane fx:id="scroll_pane_categories" hbarPolicy="NEVER" layoutX="27.0" layoutY="12.0" pannable="true" prefHeight="639.0" prefWidth="864.0" stylesheets="@admin.css" thumbColor="#4441e1" thumbHoverColor="#7a0ed9" trackColor="#d5e0ff">
+                     <content>
+                        <FlowPane fx:id="DBCategories_container" hgap="50.0" prefHeight="637.0" prefWidth="850.0" rowValignment="TOP" vgap="40.0">
+                           <children>
+                              <JFXButton fx:id="addCategory_btn" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" graphicTextGap="10.0" onAction="#addCategory" prefHeight="334.0" prefWidth="246.0" ripplerFill="WHITE" text=" " textFill="WHITE">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="#fef8ff" glyphName="PLUS" selectionFill="#be79dc" size="130" strokeLineCap="ROUND" strokeLineJoin="ROUND" tabSize="2" text="" wrappingWidth="103.64274973869396">
+                                       <font>
+                                          <Font name="Roboto Bold Italic" size="13.0" />
+                                       </font>
+                                    </FontAwesomeIcon>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Calibri" size="24.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="14.0" top="10.0" />
+                                 </padding>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <styleClass>
+                                    <String fx:value="add_buttons" />
+                                    <String fx:value="pane" />
+                                 </styleClass>
+                              </JFXButton>
+                           </children>
+                        </FlowPane>
+                     </content>
+                  </MFXScrollPane>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
